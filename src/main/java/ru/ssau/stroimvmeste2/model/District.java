@@ -1,0 +1,26 @@
+package ru.ssau.stroimvmeste2.model;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+import java.util.ArrayList;
+
+
+@Data
+@NoArgsConstructor
+public class District {
+
+    private Integer id;
+
+
+    private String districtName;
+
+
+    private String districtDescription;
+
+//    private List<User> districtUsers = new ArrayList<>();
+//
+//    private List<Project> districtProjects = new ArrayList<>();
+
+}
