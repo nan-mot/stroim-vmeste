@@ -8,16 +8,15 @@ import java.util.ArrayList;
 
 
 @Data
-@NoArgsConstructor
 public class District {
 
-    private Integer id;
+    private final Integer id;
 
 
-    private String districtName;
+    private final String districtName;
 
 
-    private String districtDescription;
+    private final String districtDescription;
 
 //    private List<User> districtUsers = new ArrayList<>();
 //
