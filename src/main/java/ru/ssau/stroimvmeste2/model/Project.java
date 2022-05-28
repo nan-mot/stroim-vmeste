@@ -1,9 +1,7 @@
 package ru.ssau.stroimvmeste2.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -21,26 +21,25 @@ import java.util.List;
 @Table
 @Data
 @NoArgsConstructor
-public class District {
+public class Project {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "district_name")
-    private String districtName;
+    @Column(name = "project_name")
+    private String projectName;
 
-    @Column(name = "district_description")
-    private String districtDescription;
+    @Column(name = "project_description")
+    private String projectDescription;
 
-    @OneToMany(mappedBy = "district",
-            orphanRemoval = true,
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.DETACH)
-    private List<User> districtUsers = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "districtId", insertable = false, updatable = false)
+    private District district;
 
-    @OneToMany(mappedBy = "district",
+    @OneToMany(mappedBy = "project",
             orphanRemoval = true,
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private List<Project> districtProjects = new ArrayList<>();
+    private List<Topic> projectTopics = new ArrayList<>();
 }

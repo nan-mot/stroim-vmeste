@@ -3,15 +3,22 @@ package ru.ssau.stroimvmeste2.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,7 +28,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column(name = "first_name")
@@ -39,6 +46,12 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
     public Role role;
+
+    @OneToMany(mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Message> topicMessages = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name="districtId", insertable=false, updatable=false)
