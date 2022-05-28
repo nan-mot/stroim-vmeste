@@ -12,9 +12,14 @@
 
 <c:url var="update_district_url" value="/districts/updateDistrict"/>
 <form:form action="${update_district_url}" method="post" modelAttribute="district">
-    <form:label path="id" style="visibility:hidden;"> </form:label> <form:input type="text" path="id" style="visibility:hidden;"/>
     <form:label path="districtName">Название района: </form:label> <form:input type="text" path="districtName"/>
+    <br/>
+    <br/>
     <form:label path="districtDescription">Описание: </form:label> <form:input path="districtDescription"/>
+    <br/>
+    <br/>
+    <form:label path="id" style="visibility:hidden;"> </form:label> <form:input type="text" path="id" style="visibility:hidden;"/>
+    <br/>
     <input type="submit" value="submit"/>
 </form:form>
 </body>

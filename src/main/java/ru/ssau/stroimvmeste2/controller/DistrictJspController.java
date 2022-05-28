@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.ssau.stroimvmeste2.model.District;
@@ -59,9 +57,9 @@ public class DistrictJspController {
     }
 
     @GetMapping("/deleteDistrict/{id}")
-    public RedirectView deleteDistrict(Model model, @PathVariable Integer id) {
+    public RedirectView deleteDistrict(@PathVariable Integer id) {
         districtService.deleteDistrict(id);
-        final RedirectView redirectView = new RedirectView("/districts/all", true);
-        return redirectView;
+        final RedirectView redirectDeleteView = new RedirectView("/districts/all", true);
+        return redirectDeleteView;
     }
 }
