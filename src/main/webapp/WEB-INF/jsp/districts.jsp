@@ -8,6 +8,7 @@
         <table>
             <thead>
                 <tr>
+                    <th></th>
                     <th>Район</th>
                     <th>Описание</th>
                     <th>Изменить район</th>
@@ -17,9 +18,11 @@
             <tbody>
                 <c:forEach items="${districts}" var="district">
                     <tr>
+                        <td style="visibility:hidden;">${district.id}</td>
                         <td>${district.districtName}</td>
                         <td>${district.districtDescription}</td>
                         <td><a href='<c:url value="/districts/updateDistrict/${district.id}"/>' > Изменить </a> </td>
+                        <td><a href='<c:url value="/districts/deleteDistrict/${district.id}"/>' > Удалить </a> </td>
                     </tr>
                 </c:forEach>
             </tbody>

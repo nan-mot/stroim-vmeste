@@ -42,6 +42,7 @@ public class DistrictJspController {
         redirectAttributes.addFlashAttribute("addDistrictSuccess", true);
         return redirectView;
     }
+
     @GetMapping("/updateDistrict/{id}")
     public String updateDistrictView(Model model, @PathVariable Integer id) {
         model.addAttribute("district", districtService.getDistrict(id));
@@ -57,6 +58,10 @@ public class DistrictJspController {
         return redirectView;
     }
 
-
-
+    @GetMapping("/deleteDistrict/{id}")
+    public RedirectView deleteDistrict(Model model, @PathVariable Integer id) {
+        districtService.deleteDistrict(id);
+        final RedirectView redirectView = new RedirectView("/districts/all", true);
+        return redirectView;
+    }
 }
