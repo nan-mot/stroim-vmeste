@@ -23,9 +23,9 @@ public class Message {
     @Column(name = "message_text")
     private String messageText;
     @ManyToOne
-    @JoinColumn(name="topicId", insertable=false, updatable=false)
+    @JoinColumn(name="topicId", insertable=true, updatable=true)
     private Topic topic;
     @ManyToOne
-    @JoinColumn(name="userId", insertable=false, updatable=false)
+    @JoinColumn(name="userId", insertable=true, updatable=true)
     private User user;
 }

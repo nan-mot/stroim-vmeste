@@ -40,6 +40,6 @@ public class Topic {
     private List<Message> topicMessages = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="projectId", insertable=false, updatable=false)
+    @JoinColumn(name="projectId", insertable=true, updatable=true)
     private Project project;
 }

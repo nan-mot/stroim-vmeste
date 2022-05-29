@@ -6,5 +6,5 @@ import lombok.Data;
 public class MessageDto {
     private final Integer id;
     private final String messageText;
-    private final String username;
+    private final String userName;
 }

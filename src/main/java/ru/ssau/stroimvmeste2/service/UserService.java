@@ -3,6 +3,7 @@ package ru.ssau.stroimvmeste2.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ssau.stroimvmeste2.dto.UserLiteDto;
+import ru.ssau.stroimvmeste2.model.District;
 import ru.ssau.stroimvmeste2.model.User;
 import ru.ssau.stroimvmeste2.repository.UserRepository;
 
@@ -19,12 +20,13 @@ public class UserService {
     public List<UserLiteDto> getAllUsers() {
         List<UserLiteDto> users = new ArrayList<>();
         for (User user : usersRepository.findAll()) {
-            users.add(new UserLiteDto(user.getId(), user.getUserName(), user.getDistrict().getDistrictName()));
+            users.add(new UserLiteDto(
+                    user.getId(),
+                    user.getUserName(),
+                    Optional.ofNullable(user.getDistrict()).orElse(new District()).getDistrictName()));
         }
         return users;
     }
-
-
     public Optional<User> getUser(Integer id) {
         return usersRepository.findById(id);
     }

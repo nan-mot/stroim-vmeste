@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.ssau.stroimvmeste2.dto.ProjectFullDto;
 import ru.ssau.stroimvmeste2.dto.ProjectLiteDto;
 import ru.ssau.stroimvmeste2.dto.TopicLiteDto;
+import ru.ssau.stroimvmeste2.model.District;
 import ru.ssau.stroimvmeste2.model.Project;
 import ru.ssau.stroimvmeste2.model.Topic;
 import ru.ssau.stroimvmeste2.repository.ProjectRepository;
@@ -23,7 +24,10 @@ public class ProjectService {
     public List<ProjectLiteDto> getAllProjects() {
         List<ProjectLiteDto> projectLiteDtos = new ArrayList<>();
         for (Project project : projectRepository.findAll()) {
-            projectLiteDtos.add( new ProjectLiteDto(project.getId(), project.getProjectName(), project.getDistrict().getDistrictName()));
+            projectLiteDtos.add( new ProjectLiteDto(
+                    project.getId(),
+                    project.getProjectName(),
+                    Optional.ofNullable(project.getDistrict()).orElse(new District()).getDistrictName()));
         }
         return projectLiteDtos;
     }

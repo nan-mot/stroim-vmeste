@@ -51,6 +51,6 @@ public class User {
     private List<Message> topicMessages = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="district_name", insertable=false, updatable=false)
+    @JoinColumn(name="district_id", insertable=true, updatable=true)
     private District district;
 }

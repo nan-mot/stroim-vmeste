@@ -3,11 +3,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Добавить пользователя</title>
+    <title>Добавить проект</title>
 </head>
 <body>
-<c:if test="${addUserSuccess}">
-    <div> Пользоватль успешно сохранен : ${savedUser.id}</div>
+<c:if test="${addProjectSuccess}">
+    <div> Проект успешно сохранен : ${savedProject.id}</div>
 </c:if>
 
 <c:url var="add_user_url" value="/users/addUser"/>

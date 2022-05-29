@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:if test="${addDistrictSuccess}">
-    <div> Район успешно сохранен под номером : ${savedDistrict.id}</div>
+    <div> Район успешно сохранен : ${savedDistrict.id}</div>
 </c:if>
 
 <c:url var="add_district_url" value="/districts/addDistrict"/>

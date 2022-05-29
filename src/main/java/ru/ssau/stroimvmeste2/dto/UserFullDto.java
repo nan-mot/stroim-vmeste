@@ -15,5 +15,5 @@ public class UserFullDto {
 
     private final String email;
 
-    private final String district;
+    private final Integer idDistrict;
 }

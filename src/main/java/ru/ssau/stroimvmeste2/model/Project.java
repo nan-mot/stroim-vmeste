@@ -34,7 +34,7 @@ public class Project {
     private String projectDescription;
 
     @ManyToOne
-    @JoinColumn(name = "districtId", insertable = false, updatable = false)
+    @JoinColumn(name = "districtId", insertable=true, updatable=true)
     private District district;
 
     @OneToMany(mappedBy = "project",
