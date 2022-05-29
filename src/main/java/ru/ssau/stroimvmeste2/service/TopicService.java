@@ -36,7 +36,7 @@ public class TopicService {
             for (Message message : topic.getTopicMessages()) {
                 messageDto.add(new MessageDto(message.getId(), message.getMessageText(),message.getUser().getUserName()));
             }
-            return Optional.of(new TopicFullDto(topic.getId(), topic.getTopicName(), topic.getTopicDescription(), messageDto));
+            return Optional.of(new TopicFullDto(topic.getId(), topic.getTopicName(), topic.getTopicDescription(), topic.getProject().getId(), messageDto));
         } else {
             return Optional.empty();
         }

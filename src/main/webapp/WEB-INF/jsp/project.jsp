@@ -24,14 +24,13 @@
     <c:forEach items="${project.projectTopics}" var="topic">
         <tr>
             <td>${topic.topicName}</td>
-            <td><a href='<c:url value="/projects/${project.id}/${topic.id}"/>'> Форум </a></td>
-            <td><a href='<c:url value="/projects/${project.id}/updateTopic${topic.id}"/>'> Изменить </a></td>
+            <td><a href='<c:url value="/projects/topics/${topic.id}"/>'> Форум </a></td>
+            <td><a href='<c:url value="/projects/topics/updateTopic/${topic.id}"/>'> Изменить </a></td>
             <td><a href='<c:url value="/projects/${project.id}/deleteTopic/${topic.id}"/>'> Удалить </a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 <br/>
-<a href='<c:url value="/projects/addProject"/>' > Добавить проект </a>
 </body>
 </html>

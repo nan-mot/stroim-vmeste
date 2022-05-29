@@ -18,6 +18,7 @@ import ru.ssau.stroimvmeste2.model.District;
 import ru.ssau.stroimvmeste2.model.Project;
 import ru.ssau.stroimvmeste2.service.DistrictService;
 import ru.ssau.stroimvmeste2.service.ProjectService;
+import ru.ssau.stroimvmeste2.service.TopicService;
 
 
 import java.util.List;
@@ -29,6 +30,8 @@ import java.util.Optional;
 public class ProjectController {
     private final ProjectService projectService;
     private final DistrictService districtService;
+
+    private final TopicService topicService;
 
     @GetMapping("/all")
     public String viewProjects(Model model) {
@@ -56,7 +59,7 @@ public class ProjectController {
     }
 
     @PostMapping("/addProject")
-    public RedirectView addProject(@ModelAttribute("user") Project project, RedirectAttributes redirectAttributes) {
+    public RedirectView addProject(@ModelAttribute("project") Project project, RedirectAttributes redirectAttributes) {
         final RedirectView redirectView = new RedirectView("all", true);
         Project savedProject = projectService.addProject(project);
         redirectAttributes.addFlashAttribute("savedProject", savedProject);
@@ -104,5 +107,11 @@ public class ProjectController {
         } else {
             return ResponseEntity.ok(projectService.findProjectNamesByKeyword(keyword));
         }
+    }
+    @GetMapping("/{projectId}/deleteTopic/{id}")
+    public RedirectView deleteTopic(@PathVariable Integer id, @PathVariable Integer projectId) {
+        topicService.deleteTopic(id);
+        final RedirectView redirectDeleteView = new RedirectView("/projects/"+ projectId, true);
+        return redirectDeleteView;
     }
 }

@@ -10,6 +10,7 @@ public class TopicFullDto {
     private final Integer id;
     private final String topicName;
     private final String topicDescription;
+    private final Integer topicProject;
     private final List<MessageDto> topicMessagesDto;
 
 }

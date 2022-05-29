@@ -41,7 +41,7 @@ public class ProjectService {
             for (Topic topic : project.getProjectTopics()) {
                 topicLiteDtos.add(new TopicLiteDto(topic.getId(), topic.getTopicName()));
             }
-            return Optional.of(new ProjectFullDto(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getDistrict().getId(), topicLiteDtos));
+            return Optional.of(new ProjectFullDto(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getDistrict().getDistrictName(), topicLiteDtos));
         } else {
             return Optional.empty();
         }
