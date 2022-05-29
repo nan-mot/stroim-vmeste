@@ -1,23 +1,19 @@
 package ru.ssau.stroimvmeste2.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class UserFullDto {
 
-    private Integer id;
+    private final Integer id;
 
-    private String firstName;
+    private final String firstName;
 
-    private String lastName;
+    private final String lastName;
 
-    private String userName;
+    private final String userName;
 
-    private String email;
+    private final String email;
 
-    public String userRole;
-
-    private String district;
+    private final String district;
 }

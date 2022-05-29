@@ -19,7 +19,7 @@ public class UserService {
     public List<UserLiteDto> getAllUsers() {
         List<UserLiteDto> users = new ArrayList<>();
         for (User user : usersRepository.findAll()) {
-            users.add(new UserLiteDto(user.getId(), user.getUserName(), user.getRole().name(), user.getDistrict().getDistrictName()));
+            users.add(new UserLiteDto(user.getId(), user.getUserName(), user.getDistrict().getDistrictName()));
         }
         return users;
     }
@@ -29,12 +29,12 @@ public class UserService {
         return usersRepository.findById(id);
     }
 
-    public void addUser(User user) {
-        usersRepository.save(user);
+    public User addUser(User user) {
+        return usersRepository.save(user);
     }
 
-    public void updateUser(User user) {
-        usersRepository.save(user);
+    public User updateUser(User user) {
+        return usersRepository.save(user);
     }
 
     public void deleteUser(Integer id) {

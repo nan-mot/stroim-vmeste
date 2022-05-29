@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
-        <title>All districts</title>
+        <title>Районы</title>
     </head>
     <body>
         <table>
@@ -27,5 +27,7 @@
                 </c:forEach>
             </tbody>
         </table>
+        <br/>
+        <a href='<c:url value="/districts/addDistrict"/>' > Добавить район </a>
     </body>
 </html>

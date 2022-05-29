@@ -43,9 +43,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "user_role")
-    public Role role;
 
     @OneToMany(mappedBy = "user",
             orphanRemoval = true,
@@ -54,6 +51,6 @@ public class User {
     private List<Message> topicMessages = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name="districtId", insertable=false, updatable=false)
+    @JoinColumn(name="district_name", insertable=false, updatable=false)
     private District district;
 }

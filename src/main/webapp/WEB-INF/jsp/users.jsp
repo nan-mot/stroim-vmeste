@@ -2,28 +2,23 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
-        <title>Все пользователи</title>
+        <title>Пользователи</title>
     </head>
     <body>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Имя</th>
-                    <th>Фамилия</th>
-                    <th>e-mail</th>
+                    <th></th>
+                    <th>Никнейм</th>
                     <th>Район</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${users}" var="user">
                     <tr>
-                        <td>${user.id}</td>
-                        <td>${user.firstName}</td>
-                        <td>${user.lastName}</td>
-                        <td>${user.email}</td>
-                        <td>${user.district}</td>
-
+                        <td style="visibility:hidden;">${user.id}</td>
+                        <td>${user.userName}</td>
+                        <td>${user.userDistrict}</td>
                     </tr>
                 </c:forEach>
             </tbody>
