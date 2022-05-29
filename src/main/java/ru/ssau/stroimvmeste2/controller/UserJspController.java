@@ -51,6 +51,8 @@ public class UserJspController {
     @GetMapping("/updateUser/{id}")
     public String updateUserView(Model model, @PathVariable Integer id) {
         model.addAttribute("user", userService.getUser(id));
+        List<District> districts = districtService.getAllDistricts();
+        model.addAttribute("districts", districts);
         return "update-user";
     }
 
