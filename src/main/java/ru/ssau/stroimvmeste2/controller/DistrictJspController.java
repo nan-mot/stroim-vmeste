@@ -25,7 +25,6 @@ public class DistrictJspController {
         model.addAttribute("districts", districtService.getAllDistricts());
         return "districts";
     }
-
     @GetMapping("/addDistrict")
     public String addDistrictView(Model model) {
         model.addAttribute("district", new District());

@@ -9,6 +9,6 @@ public class ProjectFullDto {
     private final Integer id;
     private final String projectName;
     private final String projectDescription;
-    private final String projectDistrict;
+    private final Integer district;
     private final List<TopicLiteDto> projectTopics;
 }

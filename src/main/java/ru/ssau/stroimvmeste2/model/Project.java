@@ -1,7 +1,10 @@
 package ru.ssau.stroimvmeste2.model;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +22,8 @@ import java.util.List;
 
 @Entity
 @Table
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Project {
 

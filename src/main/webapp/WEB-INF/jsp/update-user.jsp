@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:if test="${updateUserSuccess}">
-    <div> Пользоваель успешно сохранен под номером : ${updatedUser.id}</div>
+    <div> Пользоваель успешно сохранен : ${updatedUser.id}</div>
 </c:if>
 
 <c:url var="update_user_url" value="/users/updateUser"/>
