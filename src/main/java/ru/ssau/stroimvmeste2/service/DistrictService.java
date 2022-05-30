@@ -3,6 +3,7 @@ package ru.ssau.stroimvmeste2.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ssau.stroimvmeste2.model.District;
+import ru.ssau.stroimvmeste2.model.Project;
 import ru.ssau.stroimvmeste2.repository.DistrictRepository;
 
 import java.util.ArrayList;
@@ -29,7 +30,14 @@ public class DistrictService {
     }
 
     public District updateDistrict(District district) {
-        return districtRepository.save(district);
+        Optional<District> districtOptional = districtRepository.findById(district.getId());
+        if (districtOptional.isPresent()) {
+            districtOptional.get().setDistrictName(district.getDistrictName());
+            districtOptional.get().setDistrictDescription(district.getDistrictDescription());
+            return districtRepository.save(districtOptional.get());
+        } else {
+            return null;
+        }
     }
 
 

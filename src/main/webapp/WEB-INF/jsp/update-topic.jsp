@@ -19,13 +19,7 @@
     <form:label path="topicDescription">Описание: </form:label> <form:input path="topicDescription"/>
     <br/>
     <br/>
-    <form:label path="topicProject">Проект: </form:label>
-    <form:select path="topicProject">
-        <form:options items="${projects}" itemValue="id" itemLabel="projectName" />
-    </form:select>
     <form:label path="id" style="visibility:hidden;"> </form:label> <form:input type="text" path="id" style="visibility:hidden;"/>
-    <br/>
-    <br/>
     <input type="submit" value="submit"/>
 </form:form>
 </body>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
-import ru.ssau.stroimvmeste2.dto.UserFullDto;
 import ru.ssau.stroimvmeste2.model.District;
 import ru.ssau.stroimvmeste2.model.User;
 import ru.ssau.stroimvmeste2.service.DistrictService;
@@ -52,8 +51,6 @@ public class UserJspController {
     @GetMapping("/updateUser/{id}")
     public String updateUserView(Model model, @PathVariable Integer id) {
         model.addAttribute("user", userService.getUser(id));
-        List<District> districts = districtService.getAllDistricts();
-        model.addAttribute("districts", districts);
         return "update-user";
     }
 
@@ -71,5 +68,7 @@ public class UserJspController {
         final RedirectView redirectDeleteView = new RedirectView("/users/all", true);
         return redirectDeleteView;
     }
+
+
 
 }

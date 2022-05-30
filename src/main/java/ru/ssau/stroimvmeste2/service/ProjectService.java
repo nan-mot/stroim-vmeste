@@ -1,7 +1,6 @@
 package ru.ssau.stroimvmeste2.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.ssau.stroimvmeste2.dto.ProjectFullDto;
 import ru.ssau.stroimvmeste2.dto.ProjectLiteDto;
@@ -52,7 +51,14 @@ public class ProjectService {
     }
 
     public Project updateProject(Project project) {
-        return projectRepository.save(project);
+        Optional<Project> projectOptional = projectRepository.findById(project.getId());
+        if (projectOptional.isPresent()) {
+            projectOptional.get().setProjectName(project.getProjectName());
+            projectOptional.get().setProjectDescription(project.getProjectDescription());
+            return projectRepository.save(projectOptional.get());
+        } else {
+            return null;
+        }
     }
 
     public void deleteProject(Integer id) {

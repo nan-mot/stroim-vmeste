@@ -75,8 +75,6 @@ public class ProjectController {
             return "not-found";
         }
         model.addAttribute("project", projectService.getProject(id));
-        List<District> districts = districtService.getAllDistricts();
-        model.addAttribute("districts", districts);
         return "update-project";
     }
 
@@ -84,9 +82,13 @@ public class ProjectController {
     public RedirectView updateProject(@ModelAttribute("project") Project project, RedirectAttributes redirectAttributes) {
         final RedirectView redirectView = new RedirectView("all", true);
         Project updatedProject = projectService.updateProject(project);
-        redirectAttributes.addFlashAttribute("updatedProject", updatedProject);
-        redirectAttributes.addFlashAttribute("updateProjectSuccess", true);
-        return redirectView;
+        if (updatedProject == null) {
+            throw new IllegalArgumentException();
+        } else {
+            redirectAttributes.addFlashAttribute("updatedProject", updatedProject);
+            redirectAttributes.addFlashAttribute("updateProjectSuccess", true);
+            return redirectView;
+        }
     }
     @GetMapping("/deleteProject/{id}")
     public RedirectView deleteProject(@PathVariable Integer id) {

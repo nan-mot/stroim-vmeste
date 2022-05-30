@@ -73,8 +73,6 @@ public class TopicJspController {
             return "not-found";
         }
         model.addAttribute("topic", topicService.getTopic(id));
-        List<ProjectLiteDto> projects = projectService.getAllProjects();
-        model.addAttribute("projects", projects);
         return "update-topic";
     }
     @PostMapping("/projects/topics/updateTopic")

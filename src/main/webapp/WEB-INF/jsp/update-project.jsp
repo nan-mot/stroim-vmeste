@@ -19,13 +19,7 @@
     <form:label path="projectDescription">Описание: </form:label> <form:input path="projectDescription"/>
     <br/>
     <br/>
-    <form:label path="district">Район: </form:label>
-    <form:select path="district">
-        <form:options items="${districts}" itemValue="id" itemLabel="districtName" />
-    </form:select>
     <form:label path="id" style="visibility:hidden;"> </form:label> <form:input type="text" path="id" style="visibility:hidden;"/>
-    <br/>
-    <br/>
     <input type="submit" value="submit"/>
 </form:form>
 </body>

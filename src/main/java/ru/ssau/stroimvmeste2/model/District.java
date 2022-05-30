@@ -35,7 +35,7 @@ public class District {
     @OneToMany(mappedBy = "district",
             orphanRemoval = true,
             fetch = FetchType.LAZY,
-            cascade = CascadeType.DETACH)
+            cascade = CascadeType.ALL)
     private List<User> districtUsers = new ArrayList<>();
 
     @OneToMany(mappedBy = "district",

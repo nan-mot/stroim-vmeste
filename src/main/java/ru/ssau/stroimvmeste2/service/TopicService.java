@@ -6,6 +6,7 @@ import ru.ssau.stroimvmeste2.dto.MessageDto;
 import ru.ssau.stroimvmeste2.dto.TopicFullDto;
 import ru.ssau.stroimvmeste2.dto.TopicLiteDto;
 import ru.ssau.stroimvmeste2.model.Message;
+import ru.ssau.stroimvmeste2.model.Project;
 import ru.ssau.stroimvmeste2.model.Topic;
 import ru.ssau.stroimvmeste2.repository.TopicRepository;
 
@@ -47,7 +48,14 @@ public class TopicService {
     }
 
     public Topic updateTopic(Topic topic) {
-        return topicRepository.save(topic);
+        Optional<Topic> topicOptional = topicRepository.findById(topic.getId());
+        if (topicOptional.isPresent()) {
+            topicOptional.get().setTopicName(topic.getTopicName());
+            topicOptional.get().setTopicDescription(topic.getTopicDescription());
+            return topicRepository.save(topicOptional.get());
+        } else {
+            return null;
+        }
     }
 
     public void deleteTopic(Integer id) {
